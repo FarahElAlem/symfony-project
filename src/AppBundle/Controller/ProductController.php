@@ -106,17 +106,16 @@ class ProductController extends Controller
      * @Route("/{id}/delete", name="product_delete")
      * @Method("DELETE")
      */
-    public function deleteAction(Request $request, Product $product)
+    public function deleteAction(Request $request,$id)
     {
-        $form = $this->createDeleteForm($product);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
+        $product = new Product();
+        //$form = $this->createDeleteForm($category);
+        //$form->handleRequest($request);
             $em = $this->getDoctrine()->getManager();
+            $product = $em->getRepository("AppBundle:Product") -> find($id);
             $em->remove($product);
             $em->flush();
-        }
-
+        
         return $this->redirectToRoute('product_index');
     }
 

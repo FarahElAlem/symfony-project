@@ -104,17 +104,16 @@ class UserController extends Controller
      * @Route("/{id}/delete", name="user_delete")
      * @Method({"GET", "POST"})
      */
-    public function deleteAction(Request $request, User $user)
+    public function deleteAction(Request $request,$id)
     {
-        $form = $this->createDeleteForm($user);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
+        $user = new User();
+        //$form = $this->createDeleteForm($category);
+        //$form->handleRequest($request);
             $em = $this->getDoctrine()->getManager();
+            $user = $em->getRepository("AppBundle:User") -> find($id);
             $em->remove($user);
             $em->flush();
-        }
-
+        
         return $this->redirectToRoute('user_index');
     }
 

@@ -104,16 +104,18 @@ class CategoryController extends Controller
      * @Route("/{id}/delete", name="category_delete")
      * @Method({"GET", "POST"})
      */
-    public function deleteAction(Request $request, Category $category)
+    public function deleteAction(Request $request,$id)
     {
-        $form = $this->createDeleteForm($category);
-        $form->handleRequest($request);
+        $category = new Category();
+        //$form = $this->createDeleteForm($category);
+        //$form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        
             $em = $this->getDoctrine()->getManager();
+            $category = $em->getRepository("AppBundle:Category") -> find($id);
             $em->remove($category);
             $em->flush();
-        }
+        
 
         return $this->redirectToRoute('category_index');
     }

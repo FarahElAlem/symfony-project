@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">Edit product</h3>
+        </div>
+    <!-- /.box-header -->
+    <!-- form start -->
+        {{ form_start(edit_form) }}
+        <div class="box-body">
+            <div class="form-group">
+                {{ form_widget(edit_form) }}
+                <div class="box-footer">
+                    <input type="submit" class="btn btn-success" value="Edit" />
+        {{ form_end(edit_form) }}
+
+                <a class="btn btn-primary" href="{{ path('profile_index') }}"><i class="fa fa-repeat"></i> Back to the list</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

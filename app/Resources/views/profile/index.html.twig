@@ -4,7 +4,7 @@
 
 <div class="box">
         <div class="box-header">
-            <h3 class="box-title">Products list</h3>
+            <h3 class="box-title">Profiles</h3>
         </div>
             <!-- /.box-header -->
         <div class="box-body">
@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="dataTables_length" id="example1_length">
-                        <a href="{{ path('product_new') }}" class="btn btn-info">Create a new product</a>
+                        <a href="{{ path('profile_new') }}" class="btn btn-info">Create a new profile</a>
                     </div>
                 </div>
                 <div class="col-sm-12">
@@ -21,25 +21,25 @@
                 <tr role="row">
                     <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 231.033px;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Id</th>
                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 282.933px;" aria-label="Browser: activate to sort column ascending">Name</th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 250.867px;" aria-label="Platform(s): activate to sort column ascending">Description</th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 198.633px;" aria-label="Engine version: activate to sort column ascending">Price</th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 198.633px;" aria-label="Engine version: activate to sort column ascending">Category</th>
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 250.867px;" aria-label="Platform(s): activate to sort column ascending">Email</th>
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 198.633px;" aria-label="Engine version: activate to sort column ascending">Education</th>
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 198.633px;" aria-label="Engine version: activate to sort column ascending">Location</th>
                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 143.533px;" aria-label="CSS grade: activate to sort column ascending">Action</th>
                 </tr>
                 </thead>
                     <tbody>
-                            {% for product in products %}
-                                 <tr role="row" class="odd">
-                                    <td><a href="{{ path('product_show', { 'id': product.id }) }}">{{ product.id }}</a></td>
-                                    <td>{{ product.name }}</td>
-                                    <td>{{ product.description }}</td>
-                                    <td>{{ product.price }}</td>
-                                    <td>{{ product.category.name }}</td>
+        {% for profile in profiles %}
+            <tr  role="row" class="odd">
+                <td><a href="{{ path('profile_show', { 'id': profile.id }) }}">{{ profile.id }}</a></td>
+                <td>{{ profile.name }}</td>
+                <td>{{ profile.email }}</td>
+                <td>{{ profile.education }}</td>
+                <td>{{ profile.location }}</td>
                                     <td>
                                         <div class="btn-group">
-                                          <a class="btn btn-success" href="{{ path('product_show', { 'id': product.id }) }}"><i class="fa fa-eye"></i></a>
-                                          <a class="btn btn-success" href="{{ path('product_edit', { 'id': product.id }) }}"><i class="fa fa-edit"></i></a>
-                                           <a class="btn btn-danger" href="{{ path('product_delete', { 'id': product.id }) }}"><i class="fa fa-trash"></i></a>
+                                          <a class="btn btn-success" href="{{ path('profile_show', { 'id': profile.id }) }}"><i class="fa fa-eye"></i></a>
+                                          <a class="btn btn-success" href="{{ path('profile_edit', { 'id': profile.id }) }}"><i class="fa fa-edit"></i></a>
+                                           <a class="btn btn-danger" href="{{ path('profile_delete', { 'id': profile.id }) }}"><i class="fa fa-trash"></i></a>
                                         </div>
                                     </td>
                                 </tr>
@@ -50,9 +50,9 @@
                     <tr>
                         <th rowspan="1" colspan="1">Id</th>
                         <th rowspan="1" colspan="1">Name</th>
-                        <th rowspan="1" colspan="1">Description</th>
-                        <th rowspan="1" colspan="1">Price</th>
-                        <th rowspan="1" colspan="1">Category</th>
+                        <th rowspan="1" colspan="1">Email</th>
+                        <th rowspan="1" colspan="1">Education</th>
+                        <th rowspan="1" colspan="1">Location</th>
                         <th rowspan="1" colspan="1">Action</th>
                     </tr>
                     </tfoot>
